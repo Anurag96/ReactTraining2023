@@ -1,12 +1,12 @@
-import logo from './logo.svg';
 import './App.css';
-
+import Component1 from './components/Component1.jsx'
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+      <header>
         Learn React
       </header>
+      <Component1 />
     </div>
   );
 }
