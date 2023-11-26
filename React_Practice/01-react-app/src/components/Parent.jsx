@@ -33,20 +33,6 @@ function Parent() {
             name: "Anna",
             age: 34,
             height: "1.59cm"
-        }, {
-            name: "Jesse",
-            age: 21,
-            height: "1.90cm"
-        },
-        {
-            name: "Tom",
-            age: 25,
-            height: "1.67cm"
-        },
-        {
-            name: "Anna",
-            age: 34,
-            height: "1.59cm"
         }
     ]
     return (
