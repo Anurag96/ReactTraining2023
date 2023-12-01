@@ -11,11 +11,12 @@ const ProductList = (productList) => {
                             <div className='card-img'>
                                 <img className='card-img-top' src={data.img} alt={data.name} />
                             </div>
-                            <hr />
+                            <br />
                             <span className='topTemp'>{data.name}</span>
-                            <div className='card-body'>
+                            <br />
+                            <div className='card-body my-2'>
                                 <span className='max'>Rs. {data.price}</span>
-                                <h4 className='card-title'>Rs. {data.type}</h4>
+                                <h5 className='card-title'>{data.type}</h5>
                                 <div className='card-text'>
                                     <p className='day'>Rs {data.price}</p>
                                 </div>
