@@ -15,8 +15,9 @@ root.render(
       <Home />
       <Routes>
         <Route path='/' element={<App />} />
-        <Route path='/customer' element={<Customer />} />
+        <Route path='/customer/:id/:name' element={<Customer />} />
         <Route path='/product' element={<Product />} />
+        <Route path='/product/:id' element={<Product />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
     </div>

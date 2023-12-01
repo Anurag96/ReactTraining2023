@@ -19,9 +19,6 @@ const Home = () => {
                             <li className="nav-item">
                                 <Link className="nav-link" to={'/customer'}>CUSTOMER</Link>
                             </li>
-                            {/* <li className="nav-item">
-                                <Link className="nav-link disabled" aria-disabled="true">Disabled</Link>
-                            </li> */}
                         </ul>
                     </div>
                 </div>
