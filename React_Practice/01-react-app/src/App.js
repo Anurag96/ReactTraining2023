@@ -9,9 +9,9 @@ function App() {
       <header>
         Learn React
       </header>
-      {/* <Component1 /> */}
-      {/* <LifeCycle1 temp='Piono'/> */}
-      {/* <Event /> */}
+      <Component1 />
+      <LifeCycle1 temp='Piono' />
+      <Event />
       <Form />
     </div>
   );
