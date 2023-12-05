@@ -41,6 +41,6 @@ return null
 7. render(){return()}
 
 # Command to run json-server 
-npm i -g json-server 
-From terminal go to location of JSON file & run below commands
-json-server --watch db2.json --port 6700
+- npm i -g json-server 
+- From terminal go to location of JSON file & run below commands
+- json-server --watch db2.json --port 6700
