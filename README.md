@@ -44,3 +44,15 @@ return null
 - npm i -g json-server 
 - From terminal go to location of JSON file & run below commands
 - json-server --watch db2.json --port 6700
+
+# Redux
+1. View 
+2. Action 
+3. Store 
+4. Reducer
+- npm i react-redux
+- npm i redux
+- npm i @reduxjs/toolkit
+
+View is the UI, from where user will perform action, then perform Action is dipatcher by Reducer.
+Store is one place where all Reducer are collected. 
