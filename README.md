@@ -56,3 +56,28 @@ return null
 
 View is the UI, from where user will perform action, then perform Action is dipatcher by Reducer.
 Store is one place where all Reducer are collected. 
+
+
+# Axois API
+
+```
+   const [data, setData] = useState([]);
+   const fetchData = async () => {
+       // Actual API Call
+        try {
+            const baseURL = process.env.XYZ_TABLE_API;
+            const response = await axios.get(`${baseURL}`)
+                .then(response => response.data);
+            setData(response);
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
+
+        // Mock the Data
+        // setData(mockRes.data);
+    };
+
+        useEffect(() => {
+        fetchData();
+    }, []);
+```
