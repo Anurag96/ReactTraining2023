@@ -1,8 +1,19 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 const Home = () => {
 
+    const [user,setUser] = useState({
+        id:'',
+        name:''
+    })
+    
+    useEffect(()=>{
+        setUser({
+            id:'1',
+        name:'Anurag'
+        })
+    })
     return (
         <div>
             <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -17,7 +28,7 @@ const Home = () => {
                                 <Link className="nav-link active" aria-current="page" to={'/product'}>PRODUCT</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to={'/customer'}>CUSTOMER</Link>
+                                <Link className="nav-link" to={`/customer/${user.id}/${user.name}`}>CUSTOMER</Link>
                             </li>
                         </ul>
                     </div>

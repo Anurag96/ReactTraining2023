@@ -9,6 +9,7 @@ import { Route, BrowserRouter, Routes } from 'react-router-dom';
 import Home from './Navigate/Home';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
 root.render(
   <BrowserRouter>
     <div>

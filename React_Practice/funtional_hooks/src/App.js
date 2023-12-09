@@ -13,7 +13,7 @@ export const OrganizationContext = createContext()
 export const CourseContext = createContext()
 
 function App() {
-const [context,setContext] = useState("defaukt context value")
+const [context,setContext] = useState("default context value")
   return (
     <>
       {/* <Counter/>

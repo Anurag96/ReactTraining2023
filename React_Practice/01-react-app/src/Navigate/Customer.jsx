@@ -6,8 +6,8 @@ const Customer = () => {
     return (
         <div>
             <h1>Customer</h1>
-            <p>{params.id}</p>
-            <p>{params.name}</p>
+            <p>Customer iD: {params.id}</p>
+            <p>Customer Name : {params.name}</p>
         </div>
     )
 }
