@@ -24,6 +24,7 @@ function App() {
 
   const completeTask = index => {
     const newTasks = [...tasks];
+    //manipulate the state from the Parent component
     newTasks[index].completed = (newTasks[index].completed == true)?false:true;
      setTasks(newTasks);
 };

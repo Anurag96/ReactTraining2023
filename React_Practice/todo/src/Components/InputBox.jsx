@@ -5,8 +5,7 @@ function InputBox({ addTask }) {
 
     const handleSubmit = e => {
         e.preventDefault();
-        if (!value) return;
-        addTask(value);
+         addTask(value);
         setValue("");
     }
     return (
