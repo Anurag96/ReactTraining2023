@@ -1,0 +1,53 @@
+[
+    {
+        "course_name": "Intro to Data Structures",
+        "students": [
+            {
+                "name": "Alice",
+                "major": "Computer Science"
+            },
+            {
+                "name": "Bob",
+                "major": "Information System"
+            },
+            {
+                "name": "Eve",
+                "major": "Computer Science"
+            }
+        ]
+    },
+    {
+        "course_name": "Intro to Operating System",
+        "students": [
+            {
+                "name": "Rajesh",
+                "major": "Information System"
+            },
+            {
+                "name": "Ravi",
+                "major": "Mechanical"
+            },
+            {
+                "name": "Ethan",
+                "major": "Electrical"
+            }
+        ]
+    },
+    {
+        "course_name": "Intro to Web Development",
+        "students": [
+            {
+                "name": "John",
+                "major": "Information System"
+            },
+            {
+                "name": "Mike",
+                "major": "Computer Science"
+            },
+            {
+                "name": "Eve",
+                "major": "Information System"
+            }
+        ]
+    }
+]

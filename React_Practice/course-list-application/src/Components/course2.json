@@ -1,0 +1,17 @@
+{
+    "course_name": "Intro to Data Structures",
+    "students": [
+        {
+            "name": "Alice",
+            "major": "Computer Science"
+        },
+        {
+            "name": "Bob",
+            "major": "Information System"
+        },
+        {
+            "name": "Eve",
+            "major": "Computer Science"
+        }
+    ]
+}

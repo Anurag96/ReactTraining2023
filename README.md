@@ -81,3 +81,7 @@ Store is one place where all Reducer are collected.
         fetchData();
     }, []);
 ```
+
+# List of Product MOck JSON
+- https://dummyjson.com/products
+- https://fakestoreapi.com/products
