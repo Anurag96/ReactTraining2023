@@ -33,11 +33,51 @@ const Enquiries = () => {
 
   return (
     <div>
-      <h2>Enquiries for Course {courseId}</h2>
-      <ul>
+      <h5>Enquiries for Course {courseId}</h5>
+      {/* <pre>
         {JSON.stringify(enquiries)}
-      </ul>
-      {/* {enquiries} */}
+      </pre> */}
+      {/* {Object.keys(enquiries).map((key, index) => {
+        return (
+          <div>
+            {key}
+          </div>
+        )
+      })} */}
+
+      {/* {
+        (Object.values(enquiries).map((enquiry, index) => (
+          <li key={index}>
+            <p> {enquiry}</p>
+          </li>)
+        ))
+      } */}
+
+      <table class="table">
+        <thead>
+          <tr>
+            {Object.keys(enquiries).map((key, index) => {
+              return (
+                <th scope="col">
+                  {[key]}
+                </th>
+              )
+            })}
+            {/* <th scope="col">#</th> */}
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            {
+              (Object.values(enquiries).map((enquiry, index) => (
+                <td key={index}>
+                  <p> {enquiry}</p>
+                </td>)
+              ))
+            }
+          </tr>
+        </tbody>
+      </table>
     </div>
   );
 };

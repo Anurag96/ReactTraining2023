@@ -15,10 +15,22 @@
       ]
     },
     {
-      "name": "Anurag",
-      "course": "Computer Science",
-      "enquire": "Web Development is nice class",
+      "name": "",
+      "course": "Course B",
+      "enquire": [],
       "id": 3
+    },
+    {
+      "name": "",
+      "course": "Course C",
+      "enquire": [],
+      "id": 4
+    },
+    {
+      "name": "Anurag",
+      "course": "Course C",
+      "enquire": "There are couple of doubts about it",
+      "id": 5
     }
   ]
 }

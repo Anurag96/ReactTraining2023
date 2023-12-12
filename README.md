@@ -85,3 +85,7 @@ Store is one place where all Reducer are collected.
 # List of Product MOck JSON
 - https://dummyjson.com/products
 - https://fakestoreapi.com/products
+
+# Object
+- When return type JSON data is object, it can't be rendered straight away.
+- Render an Object in React , add Object.keys() to get Key & Object.values() to get Value

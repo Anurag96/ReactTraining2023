@@ -7,7 +7,7 @@ function Forms() {
     const [formData, setFormData] = useState({
         name: '',
         course: '',
-        enquire: ''
+        enquire: []
     })
     const handleChange = (e) => {
         setFormData({
