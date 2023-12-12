@@ -1,4 +1,4 @@
-import { FETCH_COURSES_SUCCESS, FETCH_COURSES_FAILURE } from '../actions/courseActions';
+import { FETCH_COURSES_SUCCESS, FETCH_COURSES_FAILURE } from '../actions/courseAction';
 
 const initialState = {
   courses: [],

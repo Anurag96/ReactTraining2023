@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchCourses } from '../actions/courseActions';
+import { fetchCourses } from '../actions/courseAction';
 import Course from './Course';
 
 const CourseList = () => {
