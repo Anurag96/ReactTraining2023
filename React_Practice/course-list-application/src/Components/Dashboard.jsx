@@ -30,7 +30,7 @@ function Dashboard() {
     }, []);
     return (
         <div className='container'>
-        {JSON.stringify(data)}
+        {/* {JSON.stringify(data)}   */}
         {data?.map((e) => (<div><Card course={e.name} courseid={e.id} /></div>))}
         </div>
     )

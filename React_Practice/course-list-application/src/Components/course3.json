@@ -3,12 +3,12 @@
       {
         "id": 1,
         "name": "Course A",
-        "enquiries": []
+        "enquiries": ["this is the reason"]
       },
       {
         "id": 2,
         "name": "Course B",
-        "enquiries": []
+        "enquiries": ["this is the reason2"]
       }
     ]
   }

@@ -1,10 +1,12 @@
-import React from 'react'
-import { useState } from 'react'
+import React, { useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 
 function Forms() {
+    const { courseId } = useParams();
+    const navigate = useNavigate();
     const [formData,setFormData] = useState({
         name:'',
-        major:''
+        email:''
     })
     const handleChange = (e) =>{
         setFormData({
@@ -13,10 +15,21 @@ function Forms() {
         })
     }
 
-    const handleSubmit = (e) =>{
-      e.preventDefault();
-      console.log('form submitted',formData)   
-    }
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        fetch(`http://localhost:3001/courses/${courseId}/enquiries`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        })
+          .then((response) => response.json())
+          .then(() => {
+            navigate(`/courses/${courseId}/enquiries`);
+          })
+          .catch((error) => console.error('Error submitting enquiry:', error));
+      };
     return (
         <div>
             <form onSubmit={handleSubmit}> 
@@ -25,12 +38,11 @@ function Forms() {
                     <input type="text" class="form-control"  name='name' placeholder="Enter Name" value={formData.name} onChange={handleChange}/>
                 </div>
                 <div class="form-group">
-                    <label htmlFor="exampleInputPassword1">Enter Major</label>
-                    <input type="text" class="form-control" name='major' placeholder="Enter Major" value={formData.major} onChange={handleChange}/>
+                    <label htmlFor="exampleInputPassword1">Enter email</label>
+                    <input type="text" class="form-control" name='email' placeholder="Enter email" value={formData.email} onChange={handleChange}/>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
-            <button type='submit'>Subnit</button>
         </div>
     )
 }
