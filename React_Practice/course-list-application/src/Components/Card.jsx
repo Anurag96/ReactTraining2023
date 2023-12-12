@@ -17,9 +17,9 @@ function Card(props) {
         <div className="card" style={{ "width": "20rem", padding: '4rem', margin: '2rem' }}>
             <div className="card-body">
                 <h5 className="card-title">{props.course}</h5>
-                <h5 className="card-title">{props.courseid}</h5>
-                <button className='my-2' onClick={()=>navigateForm(props.courseid)}>Enquire </button><br />
-                <button onClick={()=>navigateStudent(props.courseid)}>Students Details</button>
+                <h5 className="card-title">{props.courseName}</h5>
+                <button className='my-2' onClick={() => navigateForm(props.courseid)}>Enquire </button><br />
+                <button onClick={() => navigateStudent(props.courseid)}>Students Details</button>
             </div>
         </div>
     )

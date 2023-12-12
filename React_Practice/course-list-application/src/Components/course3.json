@@ -1,15 +1,24 @@
 {
-    "courses": [
-      {
-        "id": 1,
-        "name": "Course A",
-        "enquiries": ["this is the reason"]
-      },
-      {
-        "id": 2,
-        "name": "Course B",
-        "enquiries": ["this is the reason2"]
-      }
-    ]
-  }
-  
+  "courses": [
+    {
+      "id": 1,
+      "name": "Course A",
+      "enquiries": [
+        "this is the reason"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Course B",
+      "enquiries": [
+        "this is the reason2"
+      ]
+    },
+    {
+      "name": "Anurag",
+      "course": "Computer Science",
+      "enquire": "Web Development is nice class",
+      "id": 3
+    }
+  ]
+}

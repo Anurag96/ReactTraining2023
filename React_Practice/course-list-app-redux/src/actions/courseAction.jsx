@@ -3,7 +3,7 @@ export const FETCH_COURSES_FAILURE = 'FETCH_COURSES_FAILURE';
 
 export const fetchCourses = () => async (dispatch) => {
   try {
-    const response = await fetch('http://localhost:5000/courses');
+    const response = await fetch('http://localhost:3000/courses');
     const data = await response.json();
 
     dispatch({
