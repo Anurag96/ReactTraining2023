@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import { Route, BrowserRouter, Routes } from 'react-router-dom';
-import CourseDetails from './Components/CourseDetails';
 import Forms from './Components/Forms';
 import Navbar from './Components/Navbar';
 
@@ -14,7 +13,6 @@ root.render(
       <Navbar />
       <Routes>
         <Route path='/' element={<App />} />
-        <Route path='/courseRegister' element={<CourseDetails />} />
         <Route path='/form' element={<Forms />} />
       </Routes>
     </div>

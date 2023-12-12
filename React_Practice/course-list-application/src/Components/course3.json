@@ -1,0 +1,15 @@
+{
+    "courses": [
+      {
+        "id": 1,
+        "name": "Course A",
+        "enquiries": []
+      },
+      {
+        "id": 2,
+        "name": "Course B",
+        "enquiries": []
+      }
+    ]
+  }
+  
