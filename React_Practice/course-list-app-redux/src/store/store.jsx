@@ -1,7 +1,7 @@
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 // import thunk from 'redux-thunk';
-import courseReducer from './reducers/courseReducer';
-import enquiryReducer from './reducers/enquiryReducer';
+import courseReducer from '../reducers/courseReducer';
+import enquiryReducer from '../reducers/enquiryReducer';
 
 const rootReducer = combineReducers({
   courseReducer,
