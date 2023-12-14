@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import ProductCard from './ProductCard'
 import axios from 'axios';
+import productData from './productData.json'
 
 
 function Product() {
@@ -18,7 +19,7 @@ function Product() {
     }
 
     // Mock the Data
-    // setData(mockRes.data);
+    // setData(productData);
   };
 
   useEffect(() => {
