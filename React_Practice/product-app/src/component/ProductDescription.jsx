@@ -3,13 +3,16 @@ import { useEffect, useState } from 'react'
 import axios from 'axios';
 import './ProductDescription.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { useNavigate, useParams } from "react-router-dom";
 
 function ProductDescription() {
     const [data, setData] = useState([]);
+    const params = useParams();
+
     const fetchData = async () => {
         // Actual API Call
         try {
-            const baseURL = 'https://fakestoreapi.com/products/12';
+            const baseURL = `https://fakestoreapi.com/products/${params.id}`;
             const response = await axios.get(`${baseURL}`)
                 .then(response => response.data)
                 .then(response => {
@@ -41,39 +44,6 @@ function ProductDescription() {
         <div className='wrapper'>
             {/* {JSON.stringify(data)} */}
             <br />
-
-            {(<>
-                {/* <div class="one"><img src={data.image} class="card-img-top" alt="..." /></div>
-                <div class="">{data.title}</div>
-                <div class="">${data.price}</div>
-                <div class="">{data.rating.rate}</div>
-                <div class="">{data.description}</div> */}
-
-                {/* <>
-                    <div className="latestdeals container my-5">
-                        <h1>All Products</h1>
-                        <Row className="hotcards">
-                            <Col className="colcard">
-                               
-                                    <div key={item.productCode} style={cardStyle}>
-                                        <a href={`/itemDetail/${item.productCode}`}>
-                                            {" "}
-                                            <StyledCard
-                                                key={item.productCode}
-                                                name={item.vendor}
-                                                title={item.description}
-                                                price={item.value}
-                                            />
-                                        </a>
-                                    </div>
-                                
-                            </Col>
-                        </Row>
-                    </div>
-                </> */}
-            </>)}
-
-
             <div>
                 <div class="container bootdey">
                     <div class="row">
@@ -98,7 +68,7 @@ function ProductDescription() {
                                         </p>
                                         <div class="product_meta">
                                             <span class="posted_in"> <strong>Categories:</strong> {data.category}</span>
-                                            <span class="posted_in"> <strong>Rating:</strong> {data.rating.rate}</span>
+                                            <span class="posted_in"> <strong>Rating:</strong> {data?.rating?.rate}</span>
 
                                         </div>
                                         <div class="m-bot15"> <strong>Price : </strong> <span class="pro-price"> ${data.price}</span></div>

@@ -3,7 +3,7 @@ body {
     background: #eee;
 }
 
-/*panel*/
+
 .panel {
     border: none;
     box-shadow: none;
@@ -24,7 +24,6 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
-/*product list*/
 
 .prod-cat li a {
     border-bottom: 1px dashed #d9d9d9;
