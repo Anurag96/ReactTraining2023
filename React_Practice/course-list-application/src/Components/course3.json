@@ -37,6 +37,12 @@
       "course": "Python",
       "enquire": "The course are easy to complete",
       "id": 6
+    },
+    {
+      "name": "Anurag Kumar",
+      "course": "Maths",
+      "enquire": "Algorithm",
+      "id": 7
     }
   ]
 }

@@ -2,11 +2,12 @@ import React from 'react'
 import './Products.css'
 
 function ProductCard(props) {
+ 
   return (
     <div className='container'>
       <div className='row'>
         {
-          Object.values(props.data).map((val, index) => {
+          (Object.values(props.filterData).map((val, index) => {
             return (
               <div className='card col-md-3'>
                 <div className='row'>
@@ -25,7 +26,7 @@ function ProductCard(props) {
                 </div>
               </div>
             )
-          })
+          }))
         }
       </div>
     </div>
