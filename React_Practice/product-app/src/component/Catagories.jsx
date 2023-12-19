@@ -35,14 +35,13 @@ const Catagories = () => {
 
     useEffect(() => {
         fetchData()
-        setUrl(params.item)
+
     }, []);
 
     return (
         <div>
-            <div>{params.category} : {params.item}</div>
+            <div style={{ textAlign: 'center' }}>{params.category.toUpperCase()} : {params.item.toUpperCase()}</div>
             <Search data={data} setFilterData={setFilterData} />
-
             <ProductCard filterData={filterData} />
         </div>
     )

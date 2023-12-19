@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function Navbar() {
+    let navigate = useNavigate()
     const [data, setData] = useState([]);
     const fetchData = async () => {
         // Actual API Call
@@ -32,13 +33,18 @@ function Navbar() {
                 <div className="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul className="navbar-nav">
                         <li className="nav-item active">
-                            <Link className="nav-link" to={'/'}>Home <span className="sr-only">(current)</span></Link>
+                            <Link className="nav-link" to={'/'}>HOME <span className="sr-only">(current)</span></Link>
                         </li>
                         {
                             data.map(e => (
                                 <li className="nav-item">
                                     {/* <Link className="nav-link" to={`/category/${e}`}>{e}</Link> */}
-                                    <Link className="nav-link" to={`/category/${e}`} >{e}</Link>
+                                    {/* <Link className="nav-link" to={`/category/${e}`} onClick={() => { window.location.reload() }}>{e.toUpperCase()}</Link> */}
+                                    <Link className="nav-link" onClick={() => {
+                                        navigate(`/category/${e}`)
+                                        window.location.reload()
+                                    }}>{e.toUpperCase()}</Link>
+
                                 </li>
                             ))
                         }
