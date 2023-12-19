@@ -26,7 +26,7 @@ function ProductCard(props) {
                   <span className='topTemp'>{val.title.slice(0, 40) + "..."}</span>
                   <br />
                   <div className='card-body'>
-                    <span className='max'>Rs. {val.price}</span>
+                    <span className='max'>$. {val.price}</span>
                     <div className='card-text'>
                       <p className='day'>Rating : {val.rating.rate}</p>
                     </div>
