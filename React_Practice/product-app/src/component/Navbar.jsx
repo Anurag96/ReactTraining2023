@@ -1,25 +1,48 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 function Navbar() {
+    const [data, setData] = useState([]);
+    const fetchData = async () => {
+        // Actual API Call
+        try {
+            const baseURL = 'https://fakestoreapi.com/products/categories'
+            const response = await axios.get(`${baseURL}`)
+                .then(response => response.data);
+            setData(response);
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
+
+        // Mock the Data
+        // setData(mockRes.data);
+    };
+
+    useEffect(() => {
+        fetchData();
+    }, []);
+
     return (
         <div>
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                <a className="navbar-brand" href="#">Navbar</a>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul className="navbar-nav">
                         <li className="nav-item active">
-                            <a className="nav-link" href="#">Home <span className="sr-only">(current)</span></a>
+                            <Link className="nav-link" to={'/'}>Home <span className="sr-only">(current)</span></Link>
                         </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="#">Features</a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="#">Pricing</a>
-                        </li>
-                        <li className="nav-item dropdown">
+                        {
+                            data.map(e => (
+                                <li className="nav-item">
+                                    {/* <Link className="nav-link" to={`/category/${e}`}>{e}</Link> */}
+                                    <Link className="nav-link" to={`/category/${e}`} >{e}</Link>
+                                </li>
+                            ))
+                        }
+                        {/* <li className="nav-item dropdown">
                             <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Dropdown link
                             </a>
@@ -28,7 +51,7 @@ function Navbar() {
                                 <a className="dropdown-item" href="#">Another action</a>
                                 <a className="dropdown-item" href="#">Something else here</a>
                             </div>
-                        </li>
+                        </li> */}
                     </ul>
                 </div>
             </nav>

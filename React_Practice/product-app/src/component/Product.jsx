@@ -11,8 +11,6 @@ function Product() {
 
   const [data, setData] = useState([]);
   const [filterData, setFilterData] = useState([])
-  let navigate = useNavigate();
-  const params = useParams();
 
   const fetchData = async () => {
     // Actual API Call
