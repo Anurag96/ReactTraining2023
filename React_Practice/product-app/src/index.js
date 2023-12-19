@@ -19,7 +19,7 @@ root.render(
       <Navbar />
       <Routes>
         <Route path='/' element={<App />} />
-        <Route path='/:id' element={<ProductDescription />} />
+        <Route path='/product/:id' element={<ProductDescription />} />
         <Route path='/:category/:item' element={<Catagories />} />
         {/* <Route path='/customer/:id/:name' element={<Customer />} />
       <Route path='/product' element={<Product />} />

@@ -8,7 +8,7 @@ function ProductCard(props) {
 
   const navigateFilerecon = (val) => {
     console.log("Hello" + val)
-    navigate(`/${val}`);
+    navigate(`/product/${val}`);
   }
 
   return (
