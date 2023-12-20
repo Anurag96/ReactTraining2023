@@ -12,7 +12,7 @@ function ProductCard(props) {
   }
 
   return (
-    <div className='container'>
+    <div className='container' style={{ maxWidth: '1460px', marginLeft: '14rem' }}>
       <div className='row'>
         {
           (Object.values(props.filterData).map((val, index) => {

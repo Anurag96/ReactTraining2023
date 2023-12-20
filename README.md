@@ -97,6 +97,9 @@ Store is one place where all Reducer are collected.
 # List of Product MOck JSON
 - https://dummyjson.com/products
 - https://fakestoreapi.com/products
+- https://sampleapis.com/api-list/movies  (https://www.flixster.com/)
+- https://sampleapis.com/api-list (25 API Sample)
+- https://dummy.restapiexample.com/# (Employees)
 
 # Object
 - When return type JSON data is object, it can't be rendered straight away.
