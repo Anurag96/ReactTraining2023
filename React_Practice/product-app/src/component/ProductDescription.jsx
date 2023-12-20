@@ -4,14 +4,20 @@ import axios from 'axios';
 import './ProductDescription.css'
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import { useNavigate, useParams } from "react-router-dom";
+import { storeIsLoading } from '../redux/loadingSlice';
+import { useSelector, useDispatch } from "react-redux";
+
 
 function ProductDescription() {
+    const dispatch = useDispatch();
+    const isLoading = useSelector(state => state.loadingSlice);
     const [data, setData] = useState([]);
     const params = useParams();
 
     const fetchData = async () => {
         // Actual API Call
         try {
+            dispatch(storeIsLoading(true));
             const baseURL = `https://fakestoreapi.com/products/${params.id}`;
             const response = await axios.get(`${baseURL}`)
                 .then(response => response.data)
@@ -19,6 +25,7 @@ function ProductDescription() {
                     setData(response)
                     return response
                 })
+            dispatch(storeIsLoading(false));
             // setData(response);
         } catch (error) {
             console.error('Error fetching data:', error);
@@ -41,53 +48,59 @@ function ProductDescription() {
     };
 
     return (
-        <div className='wrapper'>
-            {/* {JSON.stringify(data)} */}
-            <br />
-            <div>
-                <div className="container bootdey">
-                    <div className="row">
-                        <section className="panel">
-                            <div className="panel-body">
-                                <div className="row row-no-gutters">
-                                    <div className="col-sm-4 mx-4" style={{ backgroundColor: "lavender" }}>
-                                        <div className="pro-img-details">
-                                            <img src={data.image} alt="" />
+        <>
+            {isLoading && <div class="spinner-border" role="status" style={{ marginLeft: '50%' }}>
+                <span class="sr-only">Loading...</span>
+            </div>}
+
+            {!isLoading && <div className='wrapper'>
+                {/* {JSON.stringify(data)} */}
+                <br />
+                <div>
+                    <div className="container bootdey">
+                        <div className="row">
+                            <section className="panel">
+                                <div className="panel-body">
+                                    <div className="row row-no-gutters">
+                                        <div className="col-sm-4 mx-4" style={{ backgroundColor: "lavender" }}>
+                                            <div className="pro-img-details">
+                                                <img src={data.image} alt="" />
+                                            </div>
                                         </div>
-                                    </div>
 
 
-                                    <div className="col-sm-7" style={{ backgroundColor: "lavenderblush" }}>
-                                        <h4 className="pro-d-title">
-                                            <a href="#/" className="">
-                                                {data.title}
-                                            </a>
-                                        </h4>
-                                        <p>
-                                            {data.description}
-                                        </p>
-                                        <div className="product_meta">
-                                            <span className="posted_in"> <strong>Categories:</strong> {data.category}</span>
-                                            <span className="posted_in"> <strong>Rating:</strong> {data?.rating?.rate}</span>
+                                        <div className="col-sm-7" style={{ backgroundColor: "lavenderblush" }}>
+                                            <h4 className="pro-d-title">
+                                                <a href="#/" className="">
+                                                    {data.title}
+                                                </a>
+                                            </h4>
+                                            <p>
+                                                {data.description}
+                                            </p>
+                                            <div className="product_meta">
+                                                <span className="posted_in"> <strong>Categories:</strong> {data.category}</span>
+                                                <span className="posted_in"> <strong>Rating:</strong> {data?.rating?.rate}</span>
 
-                                        </div>
-                                        <div className="m-bot15"> <strong>Price : </strong> <span className="pro-price"> ${data.price}</span></div>
-                                        {/* <div className="form-group">
+                                            </div>
+                                            <div className="m-bot15"> <strong>Price : </strong> <span className="pro-price"> ${data.price}</span></div>
+                                            {/* <div className="form-group">
                                             <label>Quantity</label>
                                             <input type="quantiy" placeholder="1" className="form-control quantity" />
                                         </div> */}
-                                        <br />
-                                        <p>
-                                            <button className="btn btn-round btn-danger" type="button"><i className="fa fa-shopping-cart"></i> Add to Cart</button>
-                                        </p>
+                                            <br />
+                                            <p>
+                                                <button className="btn btn-round btn-danger" type="button"><i className="fa fa-shopping-cart"></i> Add to Cart</button>
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </section>
+                            </section>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
+            </div>}
+        </>
     )
 }
 

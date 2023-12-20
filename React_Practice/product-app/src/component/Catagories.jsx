@@ -3,8 +3,12 @@ import axios from 'axios';
 import ProductCard from './ProductCard'
 import Search from './Search';
 import { useParams } from 'react-router-dom';
+import { storeIsLoading } from '../redux/loadingSlice';
+import { useSelector, useDispatch } from "react-redux";
 
 const Catagories = () => {
+    const dispatch = useDispatch();
+    const isLoading = useSelector(state => state.loadingSlice);
     const params = useParams();
     const [data, setData] = useState([]);
     const [filterData, setFilterData] = useState([])
@@ -42,7 +46,12 @@ const Catagories = () => {
         <div>
             <div style={{ textAlign: 'center' }}>{params.category.toUpperCase()} : {params.item.toUpperCase()}</div>
             <Search data={data} setFilterData={setFilterData} />
-            <ProductCard filterData={filterData} />
+            {!isLoading && <ProductCard filterData={filterData} />}
+            {!isLoading && <>
+                <div class="spinner-border" role="status" style={{ marginLeft: '50%' }}>
+                    <span class="sr-only">Loading...</span>
+                </div>
+            </>}
         </div>
     )
 }
