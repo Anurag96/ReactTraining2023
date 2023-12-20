@@ -8,7 +8,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 const Catagories = () => {
     const dispatch = useDispatch();
-    const isLoading = useSelector(state => state.loadingSlice);
+    const isLoading = useSelector(state => state.isLoading);
     const params = useParams();
     const [data, setData] = useState([]);
     const [filterData, setFilterData] = useState([])
@@ -19,6 +19,7 @@ const Catagories = () => {
         console.log(url)
         // Actual API Call
         try {
+            dispatch(storeIsLoading(true));
             const baseURL = `https://fakestoreapi.com/products/category/${params.item}`;
             const response = await axios.get(`${baseURL}`)
                 .then(response => response.data)
@@ -27,9 +28,11 @@ const Catagories = () => {
                     return response
                 })
                 .then(response => setFilterData(response))
+            dispatch(storeIsLoading(false));
             // setData(response);
         } catch (error) {
             console.error('Error fetching data:', error);
+            dispatch(storeIsLoading(false));
         }
 
         // Mock the Data
@@ -47,7 +50,7 @@ const Catagories = () => {
             <div style={{ textAlign: 'center' }}>{params.category.toUpperCase()} : {params.item.toUpperCase()}</div>
             <Search data={data} setFilterData={setFilterData} />
             {!isLoading && <ProductCard filterData={filterData} />}
-            {!isLoading && <>
+            {isLoading && <>
                 <div class="spinner-border" role="status" style={{ marginLeft: '50%' }}>
                     <span class="sr-only">Loading...</span>
                 </div>

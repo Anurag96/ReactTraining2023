@@ -5,6 +5,7 @@ import { useState } from 'react'
 const Counter = () => {
   //Helps to connect with Reduc
   const count = useSelector((state) => state.counter.count)
+  console.log(count + " Hello")
   const [incrementAmount, setIncrementByAmount] = useState(0)
   const resetAll = () => {
     setIncrementByAmount(0)

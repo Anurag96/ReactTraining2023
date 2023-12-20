@@ -1,10 +1,10 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit'
 
-export const loadingSlice = createSlice({
+const loadingSlice = createSlice({
     name: 'isLoading',
     initialState: false,
     reducers: {
-        storeIsLoading: (_, action) => {
+        storeIsLoading: (state, action) => {
             return action.payload;
         },
     },

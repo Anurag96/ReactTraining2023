@@ -17,13 +17,13 @@ function ProductCard(props) {
         {
           (Object.values(props.filterData).map((val, index) => {
             return (
-              <div className='card col-md-3' onClick={() => navigateFilerecon(val.id)}>
-                <div className='row'>
+              <div className='card col-md-3' onClick={() => navigateFilerecon(val.id)} style={{ margin: '1rem' }}>
+                <div className='row' >
                   <div className='card-img'>
                     <img className='card-img-top' src={val.image} />
                   </div>
                   <br />
-                  <span className='topTemp'>{val.title.slice(0, 40) + "..."}</span>
+                  <span className='topTemp'>{val.title}</span>
                   <br />
                   <div className='card-body'>
                     <span className='max'>$. {val.price}</span>

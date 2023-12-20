@@ -10,7 +10,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 function ProductDescription() {
     const dispatch = useDispatch();
-    const isLoading = useSelector(state => state.loadingSlice);
+    const isLoading = useSelector(state => state.isLoading);
     const [data, setData] = useState([]);
     const params = useParams();
 
@@ -29,6 +29,7 @@ function ProductDescription() {
             // setData(response);
         } catch (error) {
             console.error('Error fetching data:', error);
+            dispatch(storeIsLoading(false));
         }
 
         // Mock the Data
@@ -49,9 +50,7 @@ function ProductDescription() {
 
     return (
         <>
-            {isLoading && <div class="spinner-border" role="status" style={{ marginLeft: '50%' }}>
-                <span class="sr-only">Loading...</span>
-            </div>}
+
 
             {!isLoading && <div className='wrapper'>
                 {/* {JSON.stringify(data)} */}
@@ -99,6 +98,9 @@ function ProductDescription() {
                         </div>
                     </div>
                 </div>
+            </div>}
+            {isLoading && <div class="spinner-border" role="status" style={{ marginLeft: '50%' }}>
+                <span class="sr-only">Loading...</span>
             </div>}
         </>
     )

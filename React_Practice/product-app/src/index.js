@@ -16,20 +16,16 @@ root.render(
   // <React.StrictMode>
   //   <App />
   // </React.StrictMode>
-  <Provider store={store}>
+  <div >
     <BrowserRouter>
-      <div>
+      <Provider store={store}>
         <Navbar />
         <Routes>
           <Route path='/' element={<App />} />
           <Route path='/product/:id' element={<ProductDescription />} />
           <Route path='/:category/:item' element={<Catagories />} />
-          {/* <Route path='/customer/:id/:name' element={<Customer />} />
-      <Route path='/product' element={<Product />} />
-      <Route path='/product/:id' element={<Product />} />
-      <Route path='*' element={<NotFound />} /> */}
         </Routes>
-      </div>
+      </Provider>
     </BrowserRouter>
-  </Provider>
+  </div>
 );

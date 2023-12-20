@@ -11,14 +11,16 @@ import { useSelector, useDispatch } from "react-redux";
 
 function Product() {
   const dispatch = useDispatch();
-  const isLoading = useSelector(state => state.loadingSlice);
+  const isLoading = useSelector(state => state.isLoading);
   const [data, setData] = useState([]);
   const [filterData, setFilterData] = useState([])
 
   const fetchData = async () => {
     // Actual API Call
     try {
-      // dispatch(storeIsLoading(true));
+
+      dispatch(storeIsLoading(true));
+      console.log(isLoading)
       const baseURL = 'https://fakestoreapi.com/products';
       const response = await axios.get(`${baseURL}`)
         .then(response => response.data)
@@ -27,9 +29,10 @@ function Product() {
           return response
         })
         .then(response => setFilterData(response))
+      dispatch(storeIsLoading(false));
     } catch (error) {
       console.error('Error fetching data:', error);
-      // dispatch(storeIsLoading(false));
+      dispatch(storeIsLoading(false));
     }
     finally {
       // dispatch(storeIsLoading(false));
@@ -63,7 +66,7 @@ function Product() {
       }
 
       {!isLoading && <ProductCard filterData={filterData} />}
-      {!isLoading && <>
+      {isLoading && <>
         <div class="spinner-border" role="status">
           <span class="sr-only">Loading...</span>
         </div>
