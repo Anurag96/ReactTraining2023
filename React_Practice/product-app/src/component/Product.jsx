@@ -53,8 +53,9 @@ function Product() {
 
   return (
     <div>
+      PRODUCT
       <Search data={data} setFilterData={setFilterData} />
-      Product
+
       {/* {JSON.stringify(data)} */
         /**
          * The concept of filter is to pass filter data to main component and original data  & setter to Search 
