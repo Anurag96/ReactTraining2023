@@ -10,6 +10,12 @@ function ProductCard({ products }) {
                 <Card.Body>
                     <Card.Title>{e.title}</Card.Title>
                     <Card.Text>
+                        Price : ${e.price} || Rating : {e?.rating?.rate}
+                    </Card.Text>
+                    <Card.Text>
+                        Category : {e.category.toUpperCase()}
+                    </Card.Text>
+                    <Card.Text>
                         {e.description}
                     </Card.Text>
                 </Card.Body>
