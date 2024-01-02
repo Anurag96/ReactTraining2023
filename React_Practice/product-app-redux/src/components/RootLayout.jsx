@@ -1,15 +1,17 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
-import Header from '../containers/Header'
+import Header from './Header'
+import store from '../store/store'
+import { Provider } from 'react-redux';
 
 function RootLayout() {
     return (
-        <div>
+        <Provider store={store}>
             <Header />
             <main>
                 <Outlet />
             </main>
-        </div>
+        </Provider>
     )
 }
 

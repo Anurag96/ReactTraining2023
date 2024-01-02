@@ -11,7 +11,7 @@ function Product() {
             console.log(err)
         })
         setProducts(response.data)
-        console.log(response.data)
+        // console.log(response.data)
     }
     useEffect(() => {
         fetchProducts()
@@ -34,7 +34,7 @@ function Product() {
     // ))
     return (
         <div>
-            <h2>Product Dashboard</h2>
+            <h2>Dashboard</h2>
             {/* {JSON.stringify(products)} */}
             <ProductCard products={products} />
             {/* <div className="row">

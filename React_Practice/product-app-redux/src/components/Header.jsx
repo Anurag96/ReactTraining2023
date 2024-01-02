@@ -1,9 +1,10 @@
 import React from 'react'
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useSelector } from 'react-redux';
 
 function Header() {
 
-    let navigate = useNavigate();
+    const cartProducts = useSelector((state) => state.cart);
 
     return (
         <div className='ui menu'>
@@ -20,14 +21,14 @@ function Header() {
                                 <Link class="nav-link" to={'/'}>Home <span class="sr-only">(current)</span></Link>
                             </li>
                             <li class="nav-item">
-                                <Link class="nav-link" to={'/list'}>List</Link>
+                                {/* <Link class="nav-link" to={'/list'}>List</Link> */}
                             </li>
 
                         </ul>
                         <form class="form-inline my-2 my-lg-0">
                             <Link class="nav-link" to={'/cart'}>
                                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
-                                    My Bag 0
+                                    My Bag ({cartProducts.length})
                                 </button>
                             </Link>
                         </form>

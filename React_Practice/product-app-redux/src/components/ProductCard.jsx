@@ -1,8 +1,16 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import CardFooter from 'react-bootstrap/esm/CardFooter';
-
+import { useDispatch } from 'react-redux';
+import { add } from '../store/cartSlice'
 function ProductCard({ products }) {
+
+    const dispatch = useDispatch()
+
+    const addToCart = (product) => {
+        dispatch(add(product))
+    }
+
     const productList = (products).map((e) => (
         <div className='col-md-3' style={{ marginBottom: '2rem' }}>
             <Card className='h-100' >
@@ -20,7 +28,7 @@ function ProductCard({ products }) {
                     </Card.Text>
                 </Card.Body>
                 <CardFooter>
-                    <Button variant="primary">Add to Cart</Button>
+                    <Button variant="primary" onClick={() => addToCart(e)}>Add to Cart</Button>
                 </CardFooter>
             </Card>
         </div>
