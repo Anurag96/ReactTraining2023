@@ -122,7 +122,14 @@ function Cart() {
                     </MDBRow>
                 </MDBContainer>
             </section> */}
-
+            {
+                // JSON.stringify(productCart)
+                !productCart.length && (
+                    <div>
+                        No Items added in the cart!
+                    </div>
+                )
+            }
 
         </div>
     )
