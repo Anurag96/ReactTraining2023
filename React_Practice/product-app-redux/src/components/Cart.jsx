@@ -50,11 +50,13 @@ function Cart() {
     return (
         <div>
             <h1>Shopping Cart</h1>
-            <div className="row">
+            {/* <div className="row">
                 {productList}
-            </div>
+            </div> */}
 
-            {/* <section className="h-100 h-custom" style={{ backgroundColor: "#eee" }}>
+            {productCart.length &&
+            (<div>
+                <section className="h-100 h-custom" style={{ backgroundColor: "#eee" }}>
                 <MDBContainer >
                     <MDBRow className="justify-content-center align-items-center h-100">
                         <MDBCol size="12">
@@ -106,6 +108,9 @@ function Cart() {
                                                                         <MDBIcon fas icon="times" />
                                                                     </a>
                                                                 </MDBCol>
+                                                                <CardFooter>
+                    <Button variant="danger" onClick={() => removeToCart(e.id)}>Remove Item</Button>
+                </CardFooter>
                                                             </MDBRow>
                                                             <hr className="my-4" />
                                                         </>
@@ -121,7 +126,9 @@ function Cart() {
                         </MDBCol>
                     </MDBRow>
                 </MDBContainer>
-            </section> */}
+            </section>
+            </div>)
+            }
             {
                 // JSON.stringify(productCart)
                 !productCart.length && (
