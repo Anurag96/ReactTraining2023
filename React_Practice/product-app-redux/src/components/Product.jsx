@@ -5,21 +5,26 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { useDispatch, useSelector } from 'react-redux';
 import { isLoading } from '../store/LoaderSlice'
+import { getProducts } from '../store/productSlice';
 
 function Product() {
     const dispatch = useDispatch()
     //For Reading the state of loader
     const loadStatus = useSelector((state) => state.load)
-    console.log(loadStatus)
+    const products = useSelector(state => state.products)
+    console.log(products)
 
-    const [products, setProducts] = useState([])
+    // const [products, setProducts] = useState([])
     const fetchProducts = async () => {
-        //dispatching the state of loader
-        dispatch(isLoading(false))
-        const response = await axios.get('https://fakestoreapi.com/products').catch((err) => {
-            console.log(err)
-        })
-        setProducts(response.data)
+
+        // dispatch(isLoading(false))
+        // const response = await axios.get('https://fakestoreapi.com/products').catch((err) => {
+        //     console.log(err)
+        // })
+        // setProducts(response.data)
+
+        dispatch(getProducts())
+
         dispatch(isLoading(true))
         // console.log(response.data)
     }
@@ -30,9 +35,9 @@ function Product() {
     return (
         <div>
             <h2>Dashboard</h2>
-
+            {/* {JSON.stringify(products.data)} */}
             {isLoading &&
-                <ProductCard products={products} />}
+                <ProductCard products={products.data} />}
 
             {isLoading && <>
                 <div className="spinner-border" role="status" style={{ marginLeft: '18rem' }}>
