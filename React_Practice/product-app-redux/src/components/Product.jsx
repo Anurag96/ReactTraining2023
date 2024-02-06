@@ -12,7 +12,9 @@ function Product() {
     //For Reading the state of loader
     const loadStatus = useSelector((state) => state.load)
     const products = useSelector(state => state.products)
-    console.log(products)
+    const status = useSelector(state => state.products)
+    // console.log(products)
+    console.log(status.status)
 
     // const [products, setProducts] = useState([])
     const fetchProducts = async () => {
@@ -31,6 +33,16 @@ function Product() {
     useEffect(() => {
         fetchProducts()
     }, [])
+    if (status.status === 'loading') {
+        return <p><div>
+            <span className="sr-only">Loading...</span>
+        </div></p>
+    }
+    if (status.status === 'error') {
+        return <p><div>
+            <span className="sr-only">You're seeing error</span>
+        </div></p>
+    }
 
     return (
         <div>
@@ -39,11 +51,11 @@ function Product() {
             {isLoading &&
                 <ProductCard products={products.data} />}
 
-            {isLoading && <>
+            {/* {status === 'loading' && <>
                 <div className="spinner-border" role="status" style={{ marginLeft: '18rem' }}>
                     <span className="sr-only">Loading...</span>
                 </div>
-            </>}
+            </>} */}
 
         </div>
     )
