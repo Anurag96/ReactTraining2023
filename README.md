@@ -57,6 +57,27 @@ return null
 View is the UI, from where user will perform action, then perform Action is dipatcher by Reducer.
 Store is one place where all Reducer are collected. 
 
+# Passing FormData
+```
+   const fetchRecord = () => {
+        const formData = new FormData();
+        formData.append("reportName", report?.[0]?.['value']);
+        formData.append("environment", dataSource?.[0]?.['value']);
+        formData.append("ids", offerID);
+        props.fetchRecord(formData);
+    }
+```
+
+# Passing JSON data
+```
+   const fetchRecord = () => {
+        props.fetchRecord({
+            "reportName": report?.[0]?.['value'],
+            "environment": dataSource?.[0]?.['value'],
+            "ids": offerID
+        });
+    }
+```
 
 # Axois API
 
