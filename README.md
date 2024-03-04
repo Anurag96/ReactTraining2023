@@ -79,7 +79,7 @@ Store is one place where all Reducer are collected.
     }
 ```
 
-# Axois API
+# Axois API (GET)
 
 ```
    const [data, setData] = useState([]);
@@ -102,8 +102,40 @@ Store is one place where all Reducer are collected.
         fetchData();
     }, []);
 ```
+# SendHttpReq method (POST)
+```
+   const [data, setData] = useState([]);
+    const fetchData = async () => {
+        // Actual API Call
+        setIsLoading(true);
+        const requestData = {
+            searchType: "BDS",
+            id: 12300,
+        };
+        try {
+            sendHttpReq(
+                {
+                    method: "POST", url: process.env.CENTRAL_BACK_END_API,
+                    body: requestData, action: (apiData) => {
+                        if (apiData?.error?.message) {
 
-# Fetch method
+                            setIsLoading(false);
+                        } else {
+                            setData(apiData);
+                            setIsLoading(false);
+                        }
+                    }
+                }
+            );
+        } catch (error) {
+            console.log(serverError, error);
+        }
+        // Mock the Data
+        // setData(mockRes);
+    };
+```
+
+# Fetch method (GET)
 
 ```
  const [dataApi, setDataApi] = useState([]);
@@ -113,6 +145,21 @@ Store is one place where all Reducer are collected.
       .then((data) => setDataApi(data))
       .catch((error) => console.error('Error fetching enquiries:', error));
   }, [courseId]);
+```
+
+# Fetch method (POST)
+```
+fetch('https://dummyjson.com/products/add', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    title: 'BMW Pencil',
+    /* other product data */
+  })
+})
+.then(res => res.json())
+.then(console.log);
+
 ```
 
 # List of Product MOck JSON
